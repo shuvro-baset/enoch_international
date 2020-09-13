@@ -1,0 +1,21 @@
+{% load static %}
+<html lang="en">
+<head>
+    <title>Wg-pizza: Forbidden (403)</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body class="animsition">
+
+<div class="jumbotron" style="text-align: center">
+    <h1 style="font-size: 200px; color: #03abd4">403</h1>
+    <h1 style="font-size: 60px">Forbidden (403)</h1>
+    {% block content %}
+        <p>CSRF verification failed. Request aborted.</p>
+    {% endblock content %}
+</div>
+</body>
+</html>
