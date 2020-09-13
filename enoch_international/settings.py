@@ -34,7 +34,6 @@ DEBUG = env.bool("DEBUG", default=False)
 ALLOWED_HOSTS = env.list("ALLOWED_HOSTS")
 
 MODE = env.str('MODE', default='production')
-# Application definition
 
 INSTALLED_APPS = [
     'grappelli',
