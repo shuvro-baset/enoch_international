@@ -14,7 +14,7 @@ from django.views.decorators.csrf import csrf_exempt, csrf_protect
 
 
 class HomeView(TemplateView):
-    template_name = ''
+    # template_name = ''
 
     def get(self, request, *args, **kwargs):
-        return render("Welcome to Enoch International")
+        return HttpResponse("Welcome to Enoch International")
