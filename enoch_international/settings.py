@@ -37,6 +37,7 @@ MODE = env.str('MODE', default='production')
 # Application definition
 
 INSTALLED_APPS = [
+    'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -112,6 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+GRAPPELLI_ADMIN_TITLE = "Enoch International"
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
