@@ -1,0 +1,281 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+
+{% block content %}
+
+
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{##}
+{#<head>#}
+{#  <title> Enoch &mdash; International </title>#}
+{#  <meta charset="utf-8">#}
+{#  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">#}
+{##}
+{#  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700">#}
+{#  <link rel="stylesheet" href="fonts/icomoon/style.css">#}
+{##}
+{#  <link rel="stylesheet" href="css/bootstrap.min.css">#}
+{#  <link rel="stylesheet" href="css/magnific-popup.css">#}
+{#  <link rel="stylesheet" href="css/jquery-ui.css">#}
+{#  <link rel="stylesheet" href="css/owl.carousel.min.css">#}
+{#  <link rel="stylesheet" href="css/owl.theme.default.min.css">#}
+{#  <link rel="icon" type="image/png" href="images/icons/favicon.ico" />#}
+{##}
+{#<link rel="stylesheet" href="css/icon-font.min.css">#}
+{##}
+{#  <link rel="stylesheet" href="css/aos.css">#}
+{##}
+{#  <link rel="stylesheet" href="css/style.css">#}
+{#  <link href='https://fonts.googleapis.com/css?family=Amaranth' rel='stylesheet'>#}
+{##}
+{#</head>#}
+{##}
+{#<body>#}
+{##}
+{#  <div class="site-wrap">#}
+{#    <header class="site-navbar" role="banner">#}
+{#      <div class="site-navbar-top">#}
+{#        <div class="container">#}
+{#          <div class="row align-items-center">#}
+{##}
+{#            <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">#}
+{#              <a href="#">#}
+{#                <h2>Enoch.logo</h2>#}
+{#              </a>#}
+{#            </div>#}
+{##}
+{#            <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">#}
+{#              <div class="site-logo">#}
+{#                <a href="index.html" class="js-logo-clone ">Enoch</a>#}
+{#              </div>#}
+{#            </div>#}
+{##}
+{#            <div class="col-6 col-md-4 order-3 order-md-3 text-right">#}
+{#              <div class="site-top-icons">#}
+{#                <ul>#}
+{#                  <li><a href="#"><span class="icon icon-person"></span></a></li>#}
+{#                  <li><a href="#"><span class="icon icon-heart-o"></span></a></li>#}
+{#                  <li>#}
+{#                    <a href="cart.html" class="site-cart">#}
+{#                      <span class="icon icon-shopping_cart"></span>#}
+{#                      <span class="count">2</span>#}
+{#                    </a>#}
+{#                  </li>#}
+{#            #}
+{#                </ul>#}
+{#              </div>#}
+{#            </div>#}
+{##}
+{#          </div>#}
+{#        </div>#}
+{#      </div>#}
+{#      <nav class="navbar navbar-expand-lg navbar-light bg-transparent">#}
+{#        #}
+{#        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">#}
+{#          <span class="navbar-toggler-icon"></span>#}
+{#        </button>#}
+{#        <div class="collapse navbar-collapse" id="navbarNav">#}
+{#          <ul class="navbar-nav ml-auto">#}
+{#            <li class="nav-item active">#}
+{#              <a class="nav-link" href="index.html">Home</a>#}
+{#            </li>#}
+{#            <li class="nav-item">#}
+{#              <a class="nav-link" href="shop.html">Products</a>#}
+{#            </li>#}
+{#            <li class="nav-item">#}
+{#              <a class="nav-link" href="contact.html">Contact</a>#}
+{#            </li>#}
+{#         #}
+{#          </ul>#}
+{#        </div>#}
+{#        </div>#}
+{#      </nav>#}
+{#    </header>#}
+{##}
+
+
+    <!-- ========Contact Start=========== -->
+
+    <div class="contact_frm">
+
+
+        <div class="container-contact100">
+            <div class="wrap-contact100">
+                <form class="contact100-form validate-form">
+                  <span class="contact100-form-title">
+                    Get in Touch
+                  </span>
+
+                    <div class="wrap-input100 validate-input" data-validate="Name is required">
+                        <input class="input100" id="name" type="text" name="name" placeholder="Name">
+                        <label class="label-input100" for="name">
+                            <span class="lnr lnr-user"></span>
+                        </label>
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                        <input class="input100" id="email" type="text" name="email" placeholder="Email">
+                        <label class="label-input100" for="email">
+                            <span class="lnr lnr-envelope"></span>
+                        </label>
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Phone is required">
+                        <input class="input100" id="phone" type="text" name="phone" placeholder="Phone">
+                        <label class="label-input100" for="phone">
+                            <span class="lnr lnr-phone-handset"></span>
+                        </label>
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Message is required">
+                        <textarea class="input100" name="message" placeholder="Your message..."></textarea>
+                    </div>
+
+                    <div class="contact100-form-checkbox">
+                        <input class="input-checkbox100" id="ckb1" type="checkbox" name="copy-mail">
+                        <label class="label-checkbox100" for="ckb1">
+                            Send copy to my-email
+                        </label>
+                    </div>
+
+                    <div class="container-contact100-form-btn">
+                        <div class="wrap-contact100-form-btn">
+                            <div class="contact100-form-bgbtn"></div>
+                            <button class="contact100-form-btn">
+                                Send Email
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+
+    <!-- ========Contact End=========== -->
+
+    <!-- ========Contact End=========== -->
+
+    <!-- == =======Footer Section Start=========== -->
+{#    <footer class="footer-section bg-with-black">#}
+{#      <div class="footer-top-section">#}
+{#        <div class="container">#}
+{#          <div class="row">#}
+{#            <div class="col-md-3 col-sm-6 col-xs-12">#}
+{#              <div class="single-fta">#}
+{#                <img src="http://themeinnovation.com/demo2/html/build-up/img/home1/logo2.png" alt="">#}
+{#                <ul class="fta-list">#}
+{#                  <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span> Finacial Planning</a></li>#}
+{#                  <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span> Investments Management</a>#}
+{#                  </li>#}
+{#                  <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span>Taxes Planning</a></li>#}
+{#                </ul>#}
+{#              </div>#}
+{#            </div>#}
+{#            <div class="col-md-3 col-sm-6 col-xs-12">#}
+{#              <div class="single-fta">#}
+{#                <h3 class="fta-title">Important Link</h3>#}
+{#                <ul class="fta-list">#}
+{#                  <li><a href="#"><i class="fa fa-square"></i>Finacial Planning</a></li>#}
+{#                  <li><a href="#"><i class="fa fa-square"></i>Investments Management</a></li>#}
+{#                  <li><a href="#"><i class="fa fa-square"></i>Taxes Planning</a></li>#}
+{#                </ul>#}
+{#              </div>#}
+{#            </div>#}
+{#            <div class="col-md-3 col-sm-6 col-xs-12">#}
+{#              <div class="single-fta">#}
+{#                <h3 class="fta-title">Important Link</h3>#}
+{#                <ul class="fta-list">#}
+{#                  <li><a href="#"><i class="fa fa-square"></i>Finacial Planning</a></li>#}
+{#                  <li><a href="#"><i class="fa fa-square"></i>Investments Management</a></li>#}
+{#                  <li><a href="#"><i class="fa fa-square"></i>Taxes Planning</a></li>#}
+{#                </ul>#}
+{#              </div>#}
+{#            </div>#}
+{#            <div class="col-md-3 col-sm-6 col-xs-12">#}
+{#              <div class="single-fta">#}
+{#                <h3 class="fta-title">Contact Us</h3>#}
+{#                <ul class="fta-list">#}
+{#                  <li>Address: 8th floor, 379 Hudson St, New York, NY 10018</li>#}
+{#                  <li>Phone: (+1) 96 716 6879</li>#}
+{#                  <li>Email: contact@site.com</li>#}
+{#                </ul>#}
+{#              </div>#}
+{#            </div>#}
+{##}
+{#          </div>#}
+{#        </div>#}
+{#      </div>#}
+{#      <div class="footer-bottom-area">#}
+{#        <div class="container">#}
+{#          <div class="row">#}
+{#            <div class="col-xs-12">#}
+{#              <div class="footer-bottom">#}
+{#                <div class="row">#}
+{#                  <div class="col-md-12 col-sm-12 col-xs-12">#}
+{#                    <div class="fba-copyright">#}
+{#                      <p>Copyright © 2020 Developed by <a href="https://www.facebook.com/teamahoban">Team আহবান</a></p>#}
+{#                    </div>#}
+{#                  </div>#}
+{##}
+{#                </div>#}
+{#              </div>#}
+{#            </div>#}
+{#          </div>#}
+{#        </div>#}
+{#      </div>#}
+{#      <div class="social_icon">#}
+{#        <div class="container">#}
+{#          <div class="row">#}
+{#            <div class="col-md-12">#}
+{#              <div class="col-md-12 col-sm-12 col-xs-12">#}
+{#                <div class="fba-links">#}
+{#                  <ul>#}
+{#                    <li><a href="#"><img src="https://img.icons8.com/fluent/48/000000/facebook-new.png" /></a></li>#}
+{#                    <li><a href="#"><img src="https://img.icons8.com/fluent/48/000000/youtube-squared.png" /></a></li>#}
+{#                    <li><a href="#"><img src="https://img.icons8.com/cute-clipart/48/000000/twitter.png" /></a></li>#}
+{#                    <li><a href="#"><img src="https://img.icons8.com/cute-clipart/50/000000/linkedin.png" /></a></li>#}
+{##}
+{#                  </ul>#}
+{#                </div>#}
+{#              </div>#}
+{#            </div>#}
+{#          </div>#}
+{#        </div>#}
+{#      </div>#}
+{#    </footer>#}
+    <!-- =========Footer Section End=========== -->
+{##}
+{#    <script src="js/jquery-3.3.1.min.js"></script>#}
+{#    <script src="js/jquery-ui.js"></script>#}
+{#    <script src="js/popper.min.js"></script>#}
+{#    <script src="js/bootstrap.min.js"></script>#}
+{#    <script src="js/owl.carousel.min.js"></script>#}
+{#    <script src="js/jquery.magnific-popup.min.js"></script>#}
+{#    <script src="js/aos.js"></script>#}
+{##}
+{#    <script src="js/main.js"></script>#}
+{#    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>#}
+{#    <script src="js/last_car.js"></script>#}
+{#    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>#}
+
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+
+      gtag('config', 'UA-23581568-13');
+    </script>
+
+{##}
+{#</body>#}
+{##}
+{#</html>#}
+
+
+{% endblock %}

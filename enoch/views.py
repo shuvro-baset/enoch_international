@@ -18,3 +18,22 @@ class HomeView(TemplateView):
 
     def get(self, request, *args, **kwargs):
         return HttpResponse("Welcome to Enoch International")
+
+
+def home(request):
+    return render(request, 'index.html')
+
+def contact(request):
+    return render(request, 'contact.html')
+
+def cart(request):
+    return render(request, 'cart.html')
+
+def checkout(request):
+    return render(request, 'checkout.html')
+
+def shop(request):
+    return render(request, 'shop.html')
+
+def shopsingle(request):
+    return render(request, 'shop-single.html')
