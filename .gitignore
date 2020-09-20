@@ -129,3 +129,5 @@ dmypy.json
 .pyre/
 .vscode
 .idea
+__pycache__/*
+__pycache__
