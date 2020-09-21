@@ -11,34 +11,80 @@ from django.shortcuts import redirect, render, get_object_or_404
 from django.template.loader import render_to_string
 from django.urls import reverse_lazy
 from django.views.decorators.csrf import csrf_exempt, csrf_protect
+from .models import Product, Order
 
 
 class HomeView(TemplateView):
-    # template_name = ''
+    template_name = 'index.html'
 
-    def get(self, request, *args, **kwargs):
-        return HttpResponse("Welcome to Enoch International")
-
-
-def home(request):
-    return render(request, 'index.html')
+    # def get(self, request, *args, **kwargs):
+    #     return render(request, 'index.html')
 
 
-def contact(request):
-    return render(request, 'contact.html')
+class ShopView(TemplateView):
+    template_name = 'shop.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        category = self.request.GET.get('category')
+        print(category)
+        context['products'] = Product.objects.filter(category=category).all()
+        print(context['products'])
+        return context
 
 
-def cart(request):
-    return render(request, 'cart.html')
+class SingleShopView(TemplateView):
+    template_name = 'shop-single.html'
+
+    def get_context_data(self, product_id, **kwargs):
+        context = super().get_context_data(**kwargs)
+        print('product_id ', product_id)
+        context['product'] = Product.objects.filter(id=product_id).first()
+        print(context['product'])
+        return context
 
 
-def checkout(request):
-    return render(request, 'checkout.html')
+class CartView(View):
+    # template_name = 'cart.html'
+    def get(self, request, **kwargs):
+        context = {}
+        return render(request, 'cart.html', context)
+
+    def post(self, request, **kwargs):
+        context = {}
+        if request.method == 'POST':
+            request.session.modified = True
+            if 'carts' in request.session:
+                carts = request.session['carts']
+            else:
+                request.session['carts'] = []
+                carts = request.session['carts']
+            print('old carts ', carts)
+            temp_cart = {
+                'product_id': request.POST.get('product_id'),
+                'product_amount': request.POST.get('product_amount')
+            }
+            carts.append(temp_cart)
+            print('new carts ', carts)
+
+            if len(carts) > 0:
+                products_ids = []
+                update_carts = []
+                for cart_data in carts:
+                    if int(cart_data['product_id']) not in products_ids:
+                        products_ids.append(int(cart_data['product_id']))
+                        update_carts.append(cart_data)
+                print('products_ids ', products_ids)
+
+                request.session['carts'] = update_carts
+            context['carts'] = Product.objects.filter(id__in=products_ids).all()
+            print('updated-carts ', request.session['carts'])
+            return render(request, 'cart.html', context)
 
 
-def shop(request):
-    return render(request, 'shop.html')
+class ContactView(TemplateView):
+    template_name = 'contact.html'
 
 
-def shopsingle(request):
-    return render(request, 'shop-single.html')
+class CheckoutView(TemplateView):
+    template_name = 'checkout.html'
