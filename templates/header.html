@@ -56,14 +56,14 @@
                         Products
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="shop.html">SPC</a>
+                        <a class="dropdown-item" href="{% url 'enoch:shop' %}?category=SPC">SPC</a>
                         <a class="dropdown-item" href="shop.html">WPC</a>
-                        <a class="dropdown-item" href="shop.html">Rockwool Board</a>
+                        <a class="dropdown-item" href="shop.html">Rockwood Board</a>
                         <a class="dropdown-item" href="shop.html">Toilet Partition</a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="contact.html">Contact</a>
+                    <a class="nav-link" href="{% url 'enoch:contact' %}">Contact</a>
                 </li>
             </ul>
 

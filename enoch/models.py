@@ -3,17 +3,18 @@ from .shortcuts import product_image_upload_path
 
 
 class Product(models.Model):
-    # CATEGORY = (
-    # 	# 		('Indoor', 'Indoor'),
-    # 	# 		('Out Door', 'Out Door'),
-    # 	# 		)
+    CATEGORY = (
+        ('SPC', 'SPC'),
+        ('WPC', 'WPC'),
+        ('Rockwood Board', 'Rockwood Board'),
+        ('Toilet Partition', 'Toilet Partition'),
+    )
 
-    name = models.CharField(max_length=200, null=True, blank=True)
+    name = models.CharField(max_length=200, default='')
     image = models.ImageField(upload_to=product_image_upload_path)
-    description = models.TextField(max_length=200, null=True, blank=True)
-    price = models.FloatField(null=True, blank=True)
-
-    # category = models.CharField(max_length=200, null=True, choices=CATEGORY)
+    description = models.TextField(max_length=200)
+    price = models.FloatField(default='00.00')
+    category = models.CharField(max_length=200, choices=CATEGORY, default=CATEGORY[0])
 
     class Meta:
         verbose_name = 'Product'
@@ -25,11 +26,11 @@ class Product(models.Model):
 
 class Order(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    name = models.CharField(max_length=200, null=True, blank=True)
-    phone = models.CharField(max_length=15, null=True, blank=True)
-    email = models.EmailField(max_length=55, null=True, blank=True)
-    address = models.TextField(null=True, blank=True)
-    total_price = models.CharField(max_length=50, null=True, blank=True)
+    name = models.CharField(max_length=200)
+    phone = models.CharField(max_length=15)
+    email = models.EmailField(max_length=55)
+    address = models.TextField()
+    total_price = models.CharField(max_length=50)
 
     class Meta:
         verbose_name = 'Order'
