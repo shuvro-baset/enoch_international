@@ -9,4 +9,5 @@ urlpatterns = [
     path('cart/', views.CartView.as_view(), name='cart'),
     path('checkout/', views.CheckoutView.as_view(), name='checkout'),
     path('contact/', views.ContactView.as_view(), name='contact'),
+    path('ajax-update-carts/<int:product_id>', views.ajax_update_carts, name='ajax_update_carts'),
 ]

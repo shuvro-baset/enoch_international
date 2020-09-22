@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import FormView, TemplateView, UpdateView, View
+# from django.views import View
+
 import json
 from datetime import datetime
 from django.conf import settings
@@ -50,12 +52,14 @@ class SingleShopView(TemplateView):
 
 
 class CartView(View):
-    # template_name = 'cart.html'
-    def get(self, request, **kwargs):
-        context = get_cart_list(request, Product)
-        return render(request, 'cart.html', context)
+    template_name = 'cart.html'
 
-    def post(self, request, **kwargs):
+    def get(self, request, *args, **kwargs):
+        context = get_cart_list(request, Product)
+        return render(request, self.template_name, context)
+
+    def post(self, request, *args, **kwargs):
+        print('i am post')
         context = update_cart_list(request, Product)
         # context = {}
         # if request.method == 'POST':
@@ -85,14 +89,15 @@ class CartView(View):
         #         request.session['carts'] = update_carts
         #     context['carts'] = Product.objects.filter(id__in=products_ids).all()
         #     print('updated-carts ', request.session['carts'])
-        return render(request, 'cart.html', context)
+        return render(request, self.template_name, context)
 
 
 class CheckoutView(View):
     def get(self, request, **kwargs):
-        context = get_checkout_data(request, Product)
         if 'carts' not in request.session or len(request.session['carts']) == 0:
             return redirect('enoch:home')
+        context = get_checkout_data(request, Product)
+
         # else:
         #     request.session['carts'] = []
         #     carts = request.session['carts']
@@ -115,10 +120,31 @@ class CheckoutView(View):
         return render(request, 'checkout.html', context)
 
     def post(self, request, **kwargs):
-
         context = get_cart_list(request, Product)
         return render(request, 'checkout.html', context)
 
 
 class ContactView(TemplateView):
     template_name = 'contact.html'
+
+
+# @csrf_exempt
+def ajax_update_carts(request, product_id):
+    print(product_id)
+    if 'carts' in request.session:
+        carts = request.session['carts']
+    else:
+        request.session['carts'] = []
+        carts = request.session['carts']
+
+    print(carts)
+    update_carts = []
+    if len(carts) > 0:
+        for cart_data in carts:
+            print(cart_data['product_id'])
+            if int(cart_data['product_id']) != product_id:
+                update_carts.append(cart_data)
+        request.session['carts'] = update_carts
+        print('update_carts ', request.session['carts'])
+
+    return JsonResponse({'valid': True, 'success': True, 'count_carts': len(update_carts)})
