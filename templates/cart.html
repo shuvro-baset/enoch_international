@@ -20,88 +20,90 @@
     <div class="site-section">
         <div class="container">
             <div class="row mb-5">
-                <form class="col-md-12" method="post">
-                    <div class="site-blocks-table">
-                        <table class="table table-hover table-bordered bg-transparent table-responsive">
-                            <thead>
-                            <tr>
-                                <th class="product-thumbnail">Image</th>
-                                <th class="product-name">Product</th>
-                                <th class="product-price">Price</th>
-                                <th class="product-quantity">Quantity</th>
-                                <th class="product-total">Total</th>
-                                <th class="product-remove">Remove</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            {% for cart in carts %}
-                                <tr id="demo">
-                                    <td class="product-thumbnail">
-                                        <img src="{{ cart.image.url }}" alt="Image" class="img-fluid">
-                                    </td>
-                                    <td class="product-name">
-                                        <h2 class="h5 text-black">{{ cart.name }}</h2>
-                                    </td>
-                                    <td>{{ cart.price }}</td>
-                                    <td>
-                                        <div id="div1" class="input-group mb-3" style="max-width: 120px;">
-                                            <div class="input-group-prepend">
-                                                <button class="btn btn-outline-primary js-btn-minus" type="button">
-                                                    &minus;
-                                                </button>
-                                            </div>
-                                            <input type="text" class="form-control text-center" value="1" placeholder=""
-                                                   aria-label="Example text with button addon"
-                                                   aria-describedby="button-addon1">
-                                            <div class="input-group-append">
-                                                <button class="btn btn-outline-primary js-btn-plus" type="button">
-                                                    &plus;
-                                                </button>
-                                            </div>
-                                        </div>
-
-                                    </td>
-                                    <td>$49.00</td>
-                                    <td>
-                                        <button onclick="myFunction()"><a href="#" class="btn btn-primary btn-sm">X</a>
-                                        </button>
-                                    </td>
-                                </tr>
-                            {% endfor %}
+                {#                <form class="col-md-12" method="post">#}
+                <div class="site-blocks-table">
+                    <table class="table table-hover table-bordered bg-transparent table-responsive">
+                        <thead>
+                        <tr>
+                            <th class="product-thumbnail">Image</th>
+                            <th class="product-name">Product</th>
+                            <th class="product-price">Price</th>
+                            <th class="product-quantity">Quantity</th>
+                            <th class="product-total">Total</th>
+                            <th class="product-remove">Remove</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for cart in carts %}
                             <tr id="demo">
                                 <td class="product-thumbnail">
-                                    <img src="images/p2.jpg" alt="Image" class="img-fluid">
+                                    <img src="{{ cart.products_ins.image.url }}" alt="Image" class="img-fluid">
                                 </td>
                                 <td class="product-name">
-                                    <h2 class="h5 text-black">XM_WOOD</h2>
+                                    <h2 class="h5 text-black">{{ cart.products_ins.name }}</h2>
                                 </td>
-                                <td>$49.00</td>
+                                <td>{{ cart.products_ins.price }}</td>
+                                <td class="text-center">{{ cart.product_amount }}</td>
                                 <td>
                                     <div id="div1" class="input-group mb-3" style="max-width: 120px;">
-                                        <div class="input-group-prepend">
-                                            <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;
-                                            </button>
-                                        </div>
-                                        <input type="text" class="form-control text-center" value="1" placeholder=""
-                                               aria-label="Example text with button addon"
-                                               aria-describedby="button-addon1">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;
-                                            </button>
-                                        </div>
+{#                                        <div class="input-group-prepend">#}
+{#                                            <button class="btn btn-outline-primary js-btn-minus" type="button">#}
+{#                                                &minus;#}
+{#                                            </button>#}
+{#                                        </div>#}
+{#                                        <input type="text" class="form-control text-center"#}
+{#                                               value="{{ cart.product_amount }}" placeholder=""#}
+{#                                               aria-label="Example text with button addon"#}
+{#                                               aria-describedby="button-addon1">#}
+{#                                        <div class="input-group-append">#}
+{#                                            <button class="btn btn-outline-primary js-btn-plus" type="button">#}
+{#                                                &plus;#}
+{#                                            </button>#}
+{#                                        </div>#}
                                     </div>
 
                                 </td>
                                 <td>$49.00</td>
                                 <td>
-                                    <button onclick="myFunction()"><a href="#" class="btn btn-primary btn-sm">X</a>
+                                    <button onclick="myFunction({{ cart.products_ins.id }})" class="btn btn-primary btn-sm">X
                                     </button>
                                 </td>
                             </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </form>
+                        {% endfor %}
+                        {#                            <tr id="demo">#}
+                        {#                                <td class="product-thumbnail">#}
+                        {#                                    <img src="images/p2.jpg" alt="Image" class="img-fluid">#}
+                        {#                                </td>#}
+                        {#                                <td class="product-name">#}
+                        {#                                    <h2 class="h5 text-black">XM_WOOD</h2>#}
+                        {#                                </td>#}
+                        {#                                <td>$49.00</td>#}
+                        {#                                <td>#}
+                        {#                                    <div id="div1" class="input-group mb-3" style="max-width: 120px;">#}
+                        {#                                        <div class="input-group-prepend">#}
+                        {#                                            <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;#}
+                        {#                                            </button>#}
+                        {#                                        </div>#}
+                        {#                                        <input type="text" class="form-control text-center" value="1" placeholder=""#}
+                        {#                                               aria-label="Example text with button addon"#}
+                        {#                                               aria-describedby="button-addon1">#}
+                        {#                                        <div class="input-group-append">#}
+                        {#                                            <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;#}
+                        {#                                            </button>#}
+                        {#                                        </div>#}
+                        {#                                    </div>#}
+                        {##}
+                        {#                                </td>#}
+                        {#                                <td>$49.00</td>#}
+                        {#                                <td>#}
+                        {#                                    <button onclick="myFunction()"><a href="#" class="btn btn-primary btn-sm">X</a>#}
+                        {#                                    </button>#}
+                        {#                                </td>#}
+                        {#                            </tr>#}
+                        </tbody>
+                    </table>
+                </div>
+                {#                </form>#}
             </div>
 
             <div class="row">
@@ -155,7 +157,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <button class="btn btn-primary btn-lg py-3 btn-block"
-                                            onclick="window.location='checkout.html'">Proceed To Checkout
+                                            onclick="window.location.href='{% url 'enoch:checkout' %}'">Proceed To Checkout
                                     </button>
                                 </div>
                             </div>
@@ -169,9 +171,29 @@
 
 
     <script>
-        function myFunction() {
-            var myobj = document.getElementById("demo");
-            myobj.remove();
+        function myFunction(product_id) {
+            console.log(product_id)
+            $.ajax({
+                url: "/ajax-update-carts/" + product_id,
+                type: "GET",
+                data: {},
+                success: function (response) {
+                    if (response.success == true) {
+                        console.log('Updated....')
+                        {#keep safe#}
+                        var myobj = document.getElementById("demo");
+                        myobj.remove();
+                        {#keep safe#}
+
+                        document.getElementById("count_carts").innerHTML = response.count_carts;
+                    } else {
+                        console.log('Not updated....')
+                    }
+                },
+                error: function (jqXHR) {
+                    console.log('Something wrong....')
+                }
+            })
         }
     </script>
 

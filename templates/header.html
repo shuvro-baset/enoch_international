@@ -23,9 +23,10 @@
                             <li><a href="#"><span class="icon icon-person"></span></a></li>
                             <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
                             <li>
-                                <a href="cart.html" class="site-cart">
+                                <a href="{% url 'enoch:cart' %}" class="site-cart">
                                     <span class="icon icon-shopping_cart"></span>
-                                    <span class="count">2</span>
+                                    <span class="count" id="count_carts">{% if request.session.carts %}
+                                        {{ request.session.carts|length }}{% else %}0{% endif %}</span>
                                 </a>
                             </li>
 

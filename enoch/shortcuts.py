@@ -32,8 +32,17 @@ def update_cart_list(request, model_name):
                 update_carts.append(cart_data)
         print('products_ids ', products_ids)
 
-        request.session['carts'] = update_carts
-    context['carts'] = model_name.objects.filter(id__in=products_ids).all()
+    request.session['carts'] = update_carts
+    # context['carts'] = model_name.objects.filter(id__in=products_ids).all()
+    carts_data = []
+    for cart in update_carts:
+        temp = {}
+        products_ins = model_name.objects.filter(id=int(cart['product_id'])).first()
+        temp['products_ins'] = products_ins
+        temp['product_amount'] = cart['product_amount']
+        carts_data.append(temp)
+    context['carts'] = carts_data
+
     print('updated-carts ', request.session['carts'])
     return context
 
@@ -63,8 +72,17 @@ def get_cart_list(request, model_name):
                 update_carts.append(cart_data)
         print('products_ids ', products_ids)
 
-        request.session['carts'] = update_carts
-    context['carts'] = model_name.objects.filter(id__in=products_ids).all()
+    request.session['carts'] = update_carts
+    # context['carts'] = model_name.objects.filter(id__in=products_ids).all()
+    carts_data = []
+    for cart in update_carts:
+        temp = {}
+        products_ins = model_name.objects.filter(id=int(cart['product_id'])).first()
+        temp['products_ins'] = products_ins
+        temp['product_amount'] = cart['product_amount']
+        carts_data.append(temp)
+    context['carts'] = carts_data
+
     print('updated-carts ', request.session['carts'])
     return context
 
