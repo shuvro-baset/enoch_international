@@ -1,4 +1,5 @@
 import os
+from django.core.mail import EmailMessage
 
 from django.shortcuts import redirect
 
@@ -18,7 +19,7 @@ def update_cart_list(request, model_name):
     print('old carts ', carts)
     temp_cart = {
         'product_id': request.POST.get('product_id'),
-        'product_amount': request.POST.get('product_amount')
+        'product_amount': request.POST.get('product_amount')  # quantity
     }
     carts.append(temp_cart)
     print('new carts ', carts)
@@ -39,7 +40,7 @@ def update_cart_list(request, model_name):
         temp = {}
         products_ins = model_name.objects.filter(id=int(cart['product_id'])).first()
         temp['products_ins'] = products_ins
-        temp['product_amount'] = cart['product_amount']
+        temp['product_amount'] = cart['product_amount']  # quantity
         carts_data.append(temp)
     context['carts'] = carts_data
 
@@ -79,7 +80,7 @@ def get_cart_list(request, model_name):
         temp = {}
         products_ins = model_name.objects.filter(id=int(cart['product_id'])).first()
         temp['products_ins'] = products_ins
-        temp['product_amount'] = cart['product_amount']
+        temp['product_amount'] = cart['product_amount']  # quantity
         carts_data.append(temp)
     context['carts'] = carts_data
 
@@ -102,7 +103,7 @@ def get_checkout_data(request, model_name):
         cart_ins = model_name.objects.filter(id=int(cart['product_id'])).first()
         temp['product_name'] = cart_ins.name
         temp['product_price'] = cart_ins.price * int(cart['product_amount'])
-        temp['amount'] = int(cart['product_amount'])
+        temp['amount'] = int(cart['product_amount'])  # quantity
         carts_order_list.append(temp)
         total_price.append(cart_ins.price * int(cart['product_amount']))
 
@@ -110,3 +111,25 @@ def get_checkout_data(request, model_name):
     context['total_price'] = sum(total_price)
     print(context['total_price'])
     return context
+
+
+def process_order(order_data, user_data):
+    mail_subject = 'New order ..................'
+    total_price = order_data['total_price']
+    carts_order_list = ''
+    for cart_data in order_data['carts_order_list']:
+        carts_order_list += 'product name: {}, product price: {}, amount: {}\n'.format(cart_data['product_name'],
+                                                                                     cart_data['product_price'],
+                                                                                     cart_data['amount'])
+    print(carts_order_list)
+    message = 'name: ' + str(user_data['c_fname']) + ', company name:' + str(
+        user_data['c_companyname']) + ', address: ' + str(user_data['c_address']) + ', email address' + user_data[
+                  'c_email_address'] + ', phone: ' + str(
+        user_data['c_phone']) + '\n\n' + carts_order_list + '\ntotal price: ' + str(total_price) + ''
+    try:
+        email = EmailMessage(mail_subject, message, to=[user_data['c_email_address']])
+        response = email.send()
+        print('response  ', response)
+        return True
+    except Exception as e:
+        return False
