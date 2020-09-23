@@ -13,7 +13,7 @@ from django.shortcuts import redirect, render, get_object_or_404
 from django.template.loader import render_to_string
 from django.urls import reverse_lazy
 from django.views.decorators.csrf import csrf_exempt, csrf_protect
-from enoch.shortcuts import get_cart_list, get_checkout_data, update_cart_list
+from enoch.shortcuts import get_cart_list, get_checkout_data, update_cart_list, process_order
 
 from .models import Product, Order
 
@@ -120,8 +120,24 @@ class CheckoutView(View):
         return render(request, 'checkout.html', context)
 
     def post(self, request, **kwargs):
-        context = get_cart_list(request, Product)
-        return render(request, 'checkout.html', context)
+        order_data = get_checkout_data(request, Product)
+        user_data = {
+            'c_fname': request.POST.get('c_fname'),
+            'c_companyname': request.POST.get('c_companyname'),  # optional
+            'c_address': request.POST.get('c_address'),
+            'c_email_address': request.POST.get('c_email_address'),
+            'c_phone': request.POST.get('c_phone')
+        }
+        send_email = process_order(order_data, user_data)
+        if send_email is True:
+            messages.add_message(request, messages.SUCCESS,
+                                 'Thank you for your order!.  We will contact with you shortly.')
+            # request.session.flush()
+            return render(request, 'index.html')
+        else:
+            messages.add_message(request, messages.WARNING, 'Something went to wrong!. Please try again.')
+            # request.session.flush()
+            return render(request, 'index.html')
 
 
 class ContactView(TemplateView):

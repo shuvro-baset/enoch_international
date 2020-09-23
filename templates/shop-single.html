@@ -24,53 +24,53 @@
                 <div class="col-md-6">
                     <h2 class="text-black">{{ product.name }}</h2>
                     <p>{{ product.description }}</p>
-{#                    <p class="mb-4">Ex numquam veritatis debitis minima quo error quam eos dolorum quidem perferendis.#}
-{#                        Quos#}
-{#                        repellat dignissimos minus, eveniet nam voluptatibus molestias omnis reiciendis perspiciatis#}
-{#                        illum hic#}
-{#                        magni iste, velit aperiam quis.</p>#}
+                    {#                    <p class="mb-4">Ex numquam veritatis debitis minima quo error quam eos dolorum quidem perferendis.#}
+                    {#                        Quos#}
+                    {#                        repellat dignissimos minus, eveniet nam voluptatibus molestias omnis reiciendis perspiciatis#}
+                    {#                        illum hic#}
+                    {#                        magni iste, velit aperiam quis.</p>#}
                     <p><strong class="text-primary h4">{{ product.price }}</strong></p>
                     <p><strong>Please Enter Your Required Size of The Product.</strong></p>
                     <p><small>* Size will be <b>per square feet.</b></small></p>
-{#                    <div class="mb-1 d-flex">#}
-{#                        <label for="option-sm" class="d-flex mr-3 mb-3">#}
-{#                <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input type="radio"#}
-{#                                                                                               id="option-sm"#}
-{#                                                                                               name="shop-sizes"></span>#}
-{#                            <span class="d-inline-block text-black">Small</span>#}
-{#                        </label>#}
-{#                        <label for="option-md" class="d-flex mr-3 mb-3">#}
-{#                <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input type="radio"#}
-{#                                                                                               id="option-md"#}
-{#                                                                                               name="shop-sizes"></span>#}
-{#                            <span class="d-inline-block text-black">Medium</span>#}
-{#                        </label>#}
-{#                        <label for="option-lg" class="d-flex mr-3 mb-3">#}
-{#                <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input type="radio"#}
-{#                                                                                               id="option-lg"#}
-{#                                                                                               name="shop-sizes"></span>#}
-{#                            <span class="d-inline-block text-black">Large</span>#}
-{#                        </label>#}
-{#                        <label for="option-xl" class="d-flex mr-3 mb-3">#}
-{#                <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input type="radio"#}
-{#                                                                                               id="option-xl"#}
-{#                                                                                               name="shop-sizes"></span>#}
-{#                            <span class="d-inline-block text-black"> Extra Large</span>#}
-{#                        </label>#}
-{#                    </div>#}
+                    {#                    <div class="mb-1 d-flex">#}
+                    {#                        <label for="option-sm" class="d-flex mr-3 mb-3">#}
+                    {#                <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input type="radio"#}
+                    {#                                                                                               id="option-sm"#}
+                    {#                                                                                               name="shop-sizes"></span>#}
+                    {#                            <span class="d-inline-block text-black">Small</span>#}
+                    {#                        </label>#}
+                    {#                        <label for="option-md" class="d-flex mr-3 mb-3">#}
+                    {#                <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input type="radio"#}
+                    {#                                                                                               id="option-md"#}
+                    {#                                                                                               name="shop-sizes"></span>#}
+                    {#                            <span class="d-inline-block text-black">Medium</span>#}
+                    {#                        </label>#}
+                    {#                        <label for="option-lg" class="d-flex mr-3 mb-3">#}
+                    {#                <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input type="radio"#}
+                    {#                                                                                               id="option-lg"#}
+                    {#                                                                                               name="shop-sizes"></span>#}
+                    {#                            <span class="d-inline-block text-black">Large</span>#}
+                    {#                        </label>#}
+                    {#                        <label for="option-xl" class="d-flex mr-3 mb-3">#}
+                    {#                <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input type="radio"#}
+                    {#                                                                                               id="option-xl"#}
+                    {#                                                                                               name="shop-sizes"></span>#}
+                    {#                            <span class="d-inline-block text-black"> Extra Large</span>#}
+                    {#                        </label>#}
+                    {#                    </div>#}
                     <div class="mb-5">
                         <form method="post" action="{% url 'enoch:cart' %}"> {% csrf_token %}
                             <div class="input-group mb-3" style="max-width: 120px;">
-{#                                <div class="input-group-prepend">#}
-{#                                    <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>#}
-{#                                </div>#}
+                                {#                                <div class="input-group-prepend">#}
+                                {#                                    <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>#}
+                                {#                                </div>#}
                                 <input type="number" name="product_id" value="{{ product.id }}" hidden>
-                                <input type="text" name="product_amount" class="form-control text-center" value="1"
-                                       placeholder=""
+                                <input type="number" name="product_amount" class="form-control text-center" value="1"
+                                       placeholder="" minlength="1" maxlength="10" min="1" max="10"
                                        aria-label="Example text with button addon" aria-describedby="button-addon1">
-{#                                <div class="input-group-append">#}
-{#                                    <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>#}
-{#                                </div>#}
+                                {#                                <div class="input-group-append">#}
+                                {#                                    <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>#}
+                                {#                                </div>#}
                             </div>
                             <p>
                                 <button type="submit" class="buy-now btn btn-sm btn-primary">Add To Cart</button>
