@@ -9,71 +9,87 @@
     <!-- ========Contact Start=========== -->
 
     <div class="contact_frm">
-     
 
-            <div class="container-contact100">
-              <div class="wrap-contact100">
+
+        <div class="container-contact100">
+            <div class="wrap-contact100">
                 <form class="contact100-form validate-form">
                   <span class="contact100-form-title">
                     Get in Touch
                   </span>
 
-                  <div class="wrap-input100 validate-input" data-validate="Name is required">
-                    <input class="input100" id="name" type="text" name="name" placeholder="Name">
-                    <label class="label-input100" for="name">
-                      <span class="lnr lnr-user"></span>
-                    </label>
-                  </div>
-
-                  <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                    <input class="input100" id="email" type="text" name="email" placeholder="Email">
-                    <label class="label-input100" for="email">
-                      <span class="lnr lnr-envelope"></span>
-                    </label>
-                  </div>
-
-                  <div class="wrap-input100 validate-input" data-validate="Phone is required">
-                    <input class="input100" id="phone" type="text" name="phone" placeholder="Phone">
-                    <label class="label-input100" for="phone">
-                      <span class="lnr lnr-phone-handset"></span>
-                    </label>
-                  </div>
-
-                  <div class="wrap-input100 validate-input" data-validate="Message is required">
-                    <textarea class="input100" name="message" placeholder="Your message..."></textarea>
-                  </div>
-
-                  <div class="contact100-form-checkbox">
-                    <input class="input-checkbox100" id="ckb1" type="checkbox" name="copy-mail">
-                    <label class="label-checkbox100" for="ckb1">
-                      Send copy to my-email
-                    </label>
-                  </div>
-
-                  <div class="container-contact100-form-btn">
-                    <div class="wrap-contact100-form-btn">
-                      <div class="contact100-form-bgbtn"></div>
-                      <button class="contact100-form-btn">
-                        Send Email
-                      </button>
+                    <div class="wrap-input100 validate-input" data-validate="Name is required">
+                        <input class="input100" id="name" type="text" name="name" placeholder="Name">
+                        <label class="label-input100" for="name">
+                            <span class="lnr lnr-user"></span>
+                        </label>
                     </div>
-                  </div>
-                </form>
-              </div>
-      
 
-      </div>
+                    <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                        <input class="input100" id="email" type="text" name="email" placeholder="Email">
+                        <label class="label-input100" for="email">
+                            <span class="lnr lnr-envelope"></span>
+                        </label>
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Phone is required">
+                        <input class="input100" id="phone" type="text" name="phone" placeholder="Phone">
+                        <label class="label-input100" for="phone">
+                            <span class="lnr lnr-phone-handset"></span>
+                        </label>
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Message is required">
+                        <textarea class="input100" name="message" placeholder="Your message..."></textarea>
+                    </div>
+
+                    <div class="contact100-form-checkbox">
+                        <input class="input-checkbox100" id="ckb1" type="checkbox" name="copy-mail">
+                        <label class="label-checkbox100" for="ckb1">
+                            Send copy to my-email
+                        </label>
+                    </div>
+
+                    <div class="container-contact100-form-btn">
+                        <div class="wrap-contact100-form-btn">
+                            <div class="contact100-form-bgbtn"></div>
+                            <button class="contact100-form-btn">
+                                Send Email
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+
+        </div>
     </div>
 
     <!-- ========Contact End=========== -->
-
+    <div class="map">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Get Direction!</h3>
+                    <iframe class="col-xs-12"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3650.1082086224933!2d90.40904081498255!3d23.814750884557693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c6ff157f6b05%3A0x792c3789de8534a2!2s174%20Lane%20-%202%2C%20Dhaka!5e0!3m2!1sen!2sbd!4v1600794291792!5m2!1sen!2sbd"
+                            width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen=""
+                            aria-hidden="false" tabindex="0"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
-      gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
 
-      gtag('config', 'UA-23581568-13');
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-23581568-13');
     </script>
 
 {% endblock %}
