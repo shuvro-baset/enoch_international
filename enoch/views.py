@@ -164,3 +164,7 @@ def ajax_update_carts(request, product_id):
         print('update_carts ', request.session['carts'])
 
     return JsonResponse({'valid': True, 'success': True, 'count_carts': len(update_carts)})
+
+
+class AboutView(TemplateView):
+    template_name = 'about.html'
