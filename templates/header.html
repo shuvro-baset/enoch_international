@@ -6,7 +6,7 @@
             <div class="row align-items-center">
 
                 <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
-                    <a href="#">
+                    <a href="{% url 'enoch:home' %}">
                         <h2>Enoch.logo</h2>
                     </a>
                 </div>
@@ -59,8 +59,10 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{% url 'enoch:shop' %}?category=SPC">SPC</a>
                         <a class="dropdown-item" href="{% url 'enoch:shop' %}?category=WPC">WPC</a>
-                        <a class="dropdown-item" href="{% url 'enoch:shop' %}?category=Rockwood Board">Rockwood Board</a>
-                        <a class="dropdown-item" href="{% url 'enoch:shop' %}?category=Toilet Partition">Toilet Partition</a>
+                        <a class="dropdown-item" href="{% url 'enoch:shop' %}?category=Rockwood Board">Rockwood
+                            Board</a>
+                        <a class="dropdown-item" href="{% url 'enoch:shop' %}?category=Toilet Partition">Toilet
+                            Partition</a>
                     </div>
                 </li>
                 <li class="nav-item">

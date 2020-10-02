@@ -132,11 +132,11 @@ class CheckoutView(View):
         if send_email is True:
             messages.add_message(request, messages.SUCCESS,
                                  'Thank you for your order!.  We will contact with you shortly.')
-            # request.session.flush()
+            request.session.flush()
             return render(request, 'index.html')
         else:
             messages.add_message(request, messages.WARNING, 'Something went to wrong!. Please try again.')
-            # request.session.flush()
+            request.session.flush()
             return render(request, 'index.html')
 
 
