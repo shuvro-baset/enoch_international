@@ -1,4 +1,6 @@
 import os
+
+from django.conf import settings
 from django.core.mail import EmailMessage
 
 from django.shortcuts import redirect
@@ -119,17 +121,33 @@ def process_order(order_data, user_data):
     carts_order_list = ''
     for cart_data in order_data['carts_order_list']:
         carts_order_list += 'product name: {}, product price: {}, amount: {}\n'.format(cart_data['product_name'],
-                                                                                     cart_data['product_price'],
-                                                                                     cart_data['amount'])
+                                                                                       cart_data['product_price'],
+                                                                                       cart_data['amount'])
     print(carts_order_list)
     message = 'name: ' + str(user_data['c_fname']) + ', company name:' + str(
-        user_data['c_companyname']) + ', address: ' + str(user_data['c_address']) + ', email address' + user_data[
-                  'c_email_address'] + ', phone: ' + str(
-        user_data['c_phone']) + '\n\n' + carts_order_list + '\ntotal price: ' + str(total_price) + ''
+        user_data['c_companyname']) + ', address: ' + str(user_data['c_address']) + ', \nClient Email: ' + \
+              user_data['c_email_address'] + ', phone: ' + str(
+        user_data['c_phone']) + '\n\n' + carts_order_list + '\ntotal price: ' + str(total_price)
     try:
-        email = EmailMessage(mail_subject, message, to=[user_data['c_email_address']])
+        email = EmailMessage(mail_subject, message, to=[settings.EMAIL_HOST_USER])
         response = email.send()
         print('response  ', response)
         return True
     except Exception as e:
+        print('error ', e)
+        return False
+
+
+def send_contact(user_data):
+    mail_subject = 'Contact'
+    message = 'name: ' + str(user_data['c_fname']) + ', \nClient Email: ' + str(
+        user_data['c_email_address']) + ', phone: ' + str(user_data['c_phone']) + ', \n\n\nMessage: ' + str(
+        user_data['c_message'])
+    try:
+        email = EmailMessage(mail_subject, message, to=[settings.EMAIL_HOST_USER])
+        response = email.send()
+        print('response  ', response)
+        return True
+    except Exception as e:
+        print('error ', e)
         return False
