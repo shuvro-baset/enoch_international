@@ -24,7 +24,6 @@ parso==0.7.1
 pickleshare==0.7.5
 Pillow==7.2.0
 prompt-toolkit==3.0.6
-psycopg2==2.8.6
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
 Pygments==2.6.1
@@ -45,3 +44,4 @@ traitlets==4.3.3
 urllib3==1.25.9
 wcwidth==0.2.5
 wrapt==1.12.1
+psycopg2==2.8.6

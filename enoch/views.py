@@ -13,7 +13,7 @@ from django.shortcuts import redirect, render, get_object_or_404
 from django.template.loader import render_to_string
 from django.urls import reverse_lazy
 from django.views.decorators.csrf import csrf_exempt, csrf_protect
-from enoch.shortcuts import get_cart_list, get_checkout_data, update_cart_list, process_order
+from enoch.shortcuts import get_cart_list, get_checkout_data, update_cart_list, process_order, send_contact
 
 from .models import Product, Order
 
@@ -140,8 +140,27 @@ class CheckoutView(View):
             return render(request, 'index.html')
 
 
-class ContactView(TemplateView):
+class ContactView(View):
     template_name = 'contact.html'
+
+    def get(self, request):
+        return render(request, self.template_name)
+
+    def post(self, request):
+        user_data = {
+            'c_fname': request.POST.get('c_fname'),
+            'c_email_address': request.POST.get('c_email_address'),
+            'c_message': request.POST.get('c_message'),
+            'c_phone': request.POST.get('c_phone')
+        }
+        send_contact_res = send_contact(user_data)
+        if send_contact_res is True:
+            messages.add_message(request, messages.SUCCESS,
+                                 'Thank you for your contact!.  We will contact with you shortly.')
+            return render(request, 'index.html')
+        else:
+            messages.add_message(request, messages.WARNING, 'Something went to wrong!. Please try again.')
+            return render(request, 'index.html')
 
 
 # @csrf_exempt

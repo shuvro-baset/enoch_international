@@ -13,47 +13,48 @@
 
         <div class="container-contact100">
             <div class="wrap-contact100">
-                <form class="contact100-form validate-form">
-                  <span class="contact100-form-title">
+                <form method="post" action="{% url 'enoch:contact' %}"
+                      class="contact100-form validate-form"> {% csrf_token %}
+                    <span class="contact100-form-title">
                     Get in Touch
                   </span>
 
                     <div class="wrap-input100 validate-input" data-validate="Name is required">
-                        <input class="input100" id="name" type="text" name="name" placeholder="Name">
+                        <input class="input100" id="name" type="text" name="c_fname" placeholder="Name" required>
                         <label class="label-input100" for="name">
                             <span class="lnr lnr-user"></span>
                         </label>
                     </div>
 
                     <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                        <input class="input100" id="email" type="text" name="email" placeholder="Email">
+                        <input class="input100" id="email" type="email" name="c_email_address" placeholder="Email" required>
                         <label class="label-input100" for="email">
                             <span class="lnr lnr-envelope"></span>
                         </label>
                     </div>
 
                     <div class="wrap-input100 validate-input" data-validate="Phone is required">
-                        <input class="input100" id="phone" type="text" name="phone" placeholder="Phone">
+                        <input class="input100" id="phone" type="text" name="c_phone" placeholder="Phone" maxlength="15" required>
                         <label class="label-input100" for="phone">
                             <span class="lnr lnr-phone-handset"></span>
                         </label>
                     </div>
 
                     <div class="wrap-input100 validate-input" data-validate="Message is required">
-                        <textarea class="input100" name="message" placeholder="Your message..."></textarea>
+                        <textarea class="input100" name="c_message" placeholder="Your message..." required></textarea>
                     </div>
 
-                    <div class="contact100-form-checkbox">
-                        <input class="input-checkbox100" id="ckb1" type="checkbox" name="copy-mail">
-                        <label class="label-checkbox100" for="ckb1">
-                            Send copy to my-email
-                        </label>
-                    </div>
+                    {#                    <div class="contact100-form-checkbox">#}
+                    {#                        <input class="input-checkbox100" id="ckb1" type="checkbox" name="copy-mail">#}
+                    {#                        <label class="label-checkbox100" for="ckb1">#}
+                    {#                            Send copy to my-email#}
+                    {#                        </label>#}
+                    {#                    </div>#}
 
                     <div class="container-contact100-form-btn">
                         <div class="wrap-contact100-form-btn">
                             <div class="contact100-form-bgbtn"></div>
-                            <button class="contact100-form-btn">
+                            <button type="submit" class="contact100-form-btn">
                                 Send Email
                             </button>
                         </div>
