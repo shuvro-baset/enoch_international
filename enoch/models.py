@@ -8,6 +8,7 @@ class Product(models.Model):
         ('WPC', 'WPC'),
         ('Rockwood Board', 'Rockwood Board'),
         ('Toilet Partition', 'Toilet Partition'),
+        ('Others', 'Others'),
     )
 
     name = models.CharField(max_length=200, default='')
