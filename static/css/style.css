@@ -1321,7 +1321,7 @@ a:hover {
 .story_sec {
     height: 750px;
     width: auto;
-    background-image: url(../images/profile.png);
+    background-image: url(../images/spc.jpg);
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -1329,7 +1329,13 @@ a:hover {
     background-attachment: fixed;
 
 }
-
+@media screen and (min-width: 100px) and (max-width: 199px)
+{
+    .button
+    {
+        width: 25px;
+    }
+}
 
 .story_sec h3:hover {
     color: #f1cd09;
@@ -1803,7 +1809,7 @@ h2 {
 .last_car {
     height: 450px;
     width: auto;
-    background-image: url(../images/b2.jpg);
+    background-image: url(../images/22h.jpg);
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
