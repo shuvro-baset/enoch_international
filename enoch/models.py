@@ -7,7 +7,7 @@ class Product(models.Model):
         ('SPC', 'SPC'),
         ('WPC', 'WPC'),
         ('Rockwood Board', 'Rockwood Board'),
-        ('Toilet Partition', 'Toilet Partition'),
+        ('HDF Board with accessories', 'HDF Board with accessories'),
         ('Others', 'Others'),
     )
 
