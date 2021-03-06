@@ -4,10 +4,10 @@ from .shortcuts import product_image_upload_path
 
 class Product(models.Model):
     CATEGORY = (
-        ('SPC', 'SPC'),
+        ('SPC Flooring', 'SPC Flooring'),
         ('WPC', 'WPC'),
-        ('Rockwood Board', 'Rockwood Board'),
-        ('HDF Board with accessories', 'HDF Board with accessories'),
+        ('Rockwool Board', 'Rockwool Board'),
+        ('HDF Board and accessories', 'HDF Board and accessories'),
         ('Others', 'Others'),
     )
 
