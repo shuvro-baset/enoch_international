@@ -163,6 +163,13 @@ a:hover {
     font-family: cursive;
 }
 
+.feature {
+
+    font-weight: bold;
+    font-size: 17px;
+    font-family: cursive;
+}
+
 .border-top {
     border-top: 1px solid #edf0f5 !important;
 }
@@ -1312,9 +1319,9 @@ a:hover {
 }
 
 .story_sec {
-    height: 450px;
+    height: 750px;
     width: auto;
-    background-image: url(../images/p1.jpg);
+    background-image: url(../images/spc.jpg);
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -1322,7 +1329,13 @@ a:hover {
     background-attachment: fixed;
 
 }
-
+@media screen and (min-width: 100px) and (max-width: 199px)
+{
+    .button
+    {
+        width: 25px;
+    }
+}
 
 .story_sec h3:hover {
     color: #f1cd09;
@@ -1796,7 +1809,7 @@ h2 {
 .last_car {
     height: 450px;
     width: auto;
-    background-image: url(../images/b2.jpg);
+    background-image: url(../images/22h.jpg);
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -2282,75 +2295,90 @@ textarea.input100 {
 
 
 /* About Section Start */
-.abt{
-  height: 350px;
-  width: 100%;
-  background-image: url(../images/crsl6.jpg);
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  position: relative;
-  background-attachment: fixed;
+.abt {
+    height: 350px;
+    width: 100%;
+    background-image: url(../images/crsl6.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+    background-attachment: fixed;
 }
-.abt h3{
-  text-align: center;
-  color: #ffffff;
-  margin-top: 20px;
-  font-weight: bold;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-.abt_text{
-  height: 440px;
-  width: 100%;
-}
-.abt_text img{
-  height: 310px;
-  width: 340px;
- margin-top: 30px;
- border: 1px solid #7971ea;
- padding: 10px;
- border-radius: 4px;
 
+.abt h3 {
+    text-align: center;
+    color: #ffffff;
+    margin-top: 20px;
+    font-weight: bold;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
 
+.abt_text {
+    height: 440px;
+    width: 100%;
+}
 
-
-}
-.abt_text img:hover{
-box-shadow: 0 0 2px 1px rgba(40, 108, 131, 0.5);
-/* transform: rotateZ(90deg); */
-}
-.abt_text h3{
-  margin-top: 32px;
-  font-size: 30px;
-  color: #000;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-.abt_text p{
-  text-transform: capitalize;
-text-align: justify;
-color: #969696;
-float: right;
-}
-.txt_port{
-  height: 550px;
-  width: 100%;
-  background-image: url(../images/crsl2.jpg);
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  position: relative;
-  background-attachment: fixed;
+.abt_text img {
+    height: 310px;
+    width: 340px;
+    margin-top: 30px;
+    border: 1px solid #7971ea;
+    padding: 10px;
+    border-radius: 4px;
 
 
 }
-.about-us h1,h2,p{
-  color: #000!important;
+
+.abt_text img:hover {
+    box-shadow: 0 0 2px 1px rgba(40, 108, 131, 0.5);
+    /* transform: rotateZ(90deg); */
 }
-.txt_port h3{
-  margin-top: 20px;
-  color: #ffffff;
+
+.abt_text h3 {
+    margin-top: 32px;
+    font-size: 30px;
+    color: #000;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-.txt_port p{
-  color: #ffffff!important;
+
+.abt_text p {
+    text-transform: capitalize;
+    text-align: justify;
+    color: #969696;
+    float: right;
 }
+
+.txt_port {
+    height: 550px;
+    width: 100%;
+    background-image: url(../images/crsl2.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+    background-attachment: fixed;
+
+
+}
+
+.about-us h1, h2, p {
+    color: #000 !important;
+}
+
+.txt_port h3 {
+    margin-top: 20px;
+    color: #ffffff;
+}
+
+.txt_port p {
+    color: #ffffff !important;
+}
+
 /* About Section End */
+
+
+.logo img {
+    height: 70px;
+    width: 120px;
+}
