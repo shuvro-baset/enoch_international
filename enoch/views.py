@@ -20,7 +20,6 @@ from .models import Product, Order
 
 class HomeView(TemplateView):
     template_name = 'index.html'
-
     # def get(self, request, *args, **kwargs):
     #     return render(request, 'index.html')
 
